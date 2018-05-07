@@ -33,6 +33,8 @@ public class Calc {
                     case operator4:
                         System.out.println("= " + Operations.div(x, y));
                         break;
+                    default:
+                        throw new UnkownOperatorException ("wrong");
                 }
             } catch (UnkownOperatorException e) {
                 System.out.println(e.getMessage());
