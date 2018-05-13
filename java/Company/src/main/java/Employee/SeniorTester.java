@@ -1,12 +1,10 @@
 package Employee;
 
-import Employee.Interfaces.Responsibility;
-import Employee.Interfaces.Salary;
-import Employee.Interfaces.Working;
 
-public class SeniorTester extends Employee implements Salary, Responsibility, Working {
-    public SeniorTester(String firstName, String lastName, String workplace) {
-        super(firstName, lastName, workplace);
+
+public class SeniorTester extends Employee {
+    public SeniorTester(String firstName, String lastName, String workplace, String desc) {
+        super(firstName, lastName, workplace, desc);
     }
     @Override
     public int working(){

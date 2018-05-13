@@ -1,16 +1,13 @@
 package Employee;
 
-import Employee.Interfaces.Responsibility;
-import Employee.Interfaces.Salary;
-import Employee.Interfaces.Working;
 
 /**
  * Created by lenovo on 2018-05-06.
  */
-public class SeniorAutomationTester extends Employee implements Responsibility, Salary, Working {
+public class SeniorAutomationTester extends Employee {
 
-    public SeniorAutomationTester(String firstName, String lastName, String workplace) {
-        super(firstName, lastName, workplace);
+    public SeniorAutomationTester(String firstName, String lastName, String workplace, String desc) {
+        super(firstName, lastName, workplace, desc);
     }
 
     @Override

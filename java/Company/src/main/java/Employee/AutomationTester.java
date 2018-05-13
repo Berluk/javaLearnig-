@@ -1,14 +1,12 @@
 package Employee;
 
-import Employee.Interfaces.Responsibility;
-import Employee.Interfaces.Salary;
-import Employee.Interfaces.Working;
 
 
-public class AutomationTester extends Employee implements Responsibility, Working, Salary {
+public class AutomationTester extends Employee {
 
-    public AutomationTester(String firstName, String lastName, String workplace) {
-        super(firstName, lastName, workplace);
+    public AutomationTester(String firstName, String lastName, String workplace, String desc) {
+        super(firstName, lastName, workplace, desc);
+        
     }
 
     @Override
