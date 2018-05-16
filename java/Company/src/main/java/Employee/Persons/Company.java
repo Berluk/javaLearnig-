@@ -5,9 +5,7 @@ import Employee.Exceptions.ExludedPersonsException;
 import Employee.Exceptions.NoMoreSpaceException;
 
 public class Company {
-
-
-    public static final int MAX_NUMBER_EMPLOYYES = 5;
+    public static final int MAX_NUMBER_EMPLOYYES = 10;
     private Employee[] persons;
     private int employeesNumber;
 
@@ -17,35 +15,17 @@ public class Company {
         this.employeesNumber = 0;
     }
 
-    public void add(Employee employee) throws NoMoreSpaceException {
+    public void add(Employee employee) throws NoMoreSpaceException, ExludedPersonsException {
         if (employeesNumber >= MAX_NUMBER_EMPLOYYES) {
-            throw new NoMoreSpaceException("NOTE!!! Lack of place for new employee !!!" +"\n"+
-            "Maximum place is: " + persons.length );
+            throw new NoMoreSpaceException("NOTE!!! Lack of place for new employee !!!" + "\n" +
+                    "Maximum place is: " + persons.length);
+        } else if ("Jan".equals(employee.getFirstName()) && "Kowalski".equals(employee.getLastName())) {
+            throw new ExludedPersonsException("Cannot save this person: " + employee.getFirstName() + " " + employee.getLastName());
         } else {
+
             persons[employeesNumber] = employee;
             employeesNumber++;
         }
-    }
-    public Employee exlcuded (String firstName, String lastName)throws ExludedPersonsException{
-
-        boolean found = false;
-        Employee foundElement = null;
-        int index = 0;
-        while (!found&&index<employeesNumber){
-            if(persons[index].getFirstName().equals(firstName)&&
-                    persons[index].getLastName().equals(lastName)){
-                foundElement=persons[index];
-                found=true;
-            }
-            else{
-                index++;
-            }
-            if(foundElement == persons[index]){
-                throw new ExludedPersonsException("This person cannot be added !!! "+ '\'' + firstName +'\'' + " "
-                        + '\'' + lastName + '\'');
-            }
-        }
-        return foundElement;
     }
 
 

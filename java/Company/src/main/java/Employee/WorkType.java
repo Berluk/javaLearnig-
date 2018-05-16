@@ -1,20 +1,13 @@
 package Employee;
 
 public enum WorkType {
-    AUTOMATION_TESTER("Automation Tester"),
-    SENIOR_AUTOMATION_TESTER("Senior Automation Tester"),
-    SENIOR_TESTER("Senior Tester"),
-    TESTER("Manual Tester");
+    AUTOMATION_TESTER,
+    SENIOR_AUTOMATION_TESTER,
+    SENIOR_TESTER,
+    TESTER,
+    CHAIRMAN;
 
 
 
-    private String desc;
 
-    WorkType(String desc) {
-        this.desc = desc;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
 }

@@ -40,7 +40,7 @@ public abstract class Employee implements Responsibility, Working, Salary {
 
     @Override
     public String toString() {
-        return "first name: " + '\'' + firstName + '\'' + ", last name: " + '\'' + lastName + '\''
+        return "\n"+"first name: " + '\'' + firstName + '\'' + ", last name: " + '\'' + lastName + '\''
                 + ", work place: " + '\'' + workplace + '\'' + ", time working: " + working() + "h" + ","
                 + " Salary: " + getSalary() + " zł gross" + "\n" + "Job position: " + desc;
     }
