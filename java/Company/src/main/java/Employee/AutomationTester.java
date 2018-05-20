@@ -28,4 +28,5 @@ public class AutomationTester extends Employee {
     public double getSalary() {
         return 7586.52;
     }
+
 }

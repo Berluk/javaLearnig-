@@ -29,4 +29,5 @@ public class SeniorAutomationTester extends Employee {
     public String toString() {
         return super.toString() + '\n' + "Responsibilities: " + '\n' + printInfo();
     }
+
 }

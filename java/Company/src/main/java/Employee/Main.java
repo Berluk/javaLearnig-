@@ -4,7 +4,10 @@ import Employee.Exceptions.ExludedPersonsException;
 import Employee.Exceptions.NoMoreSpaceException;
 import Employee.Persons.Company;
 
-public class Main {
+import java.util.Collection;
+import java.util.Collections;
+
+public class Main{
     public static void main(String[] args) {
         Company person = new Company();
         try {
@@ -12,8 +15,14 @@ public class Main {
             person.add(new AutomationTester("Tom", "Addo", "Automation Team", WorkType.AUTOMATION_TESTER.toString()));
             person.add(new SeniorTester("Paweł", "Frack", "Senior Tester", WorkType.SENIOR_TESTER.toString()));
             person.add(new SeniorAutomationTester("Puff", "daddy", "Lazy", WorkType.SENIOR_AUTOMATION_TESTER.toString()));
-            person.add(new Tester("Michał", "Kowalski", "Lazy", WorkType.TESTER.toString()));
+            try{
+                person.add(new Tester("Jan", "Kowalski", "Lazy", WorkType.TESTER.toString()));
+            }
+            catch (ExludedPersonsException e){
+                System.err.println(e.getMessage());
+            }
             person.add(new Employee("Paweł", "Frąckowiak", "Lazy Buster", WorkType.CHAIRMAN.toString() ) {
+
                 @Override
                 public String printInfo() {
                     return null;
@@ -31,12 +40,15 @@ public class Main {
             });
             System.out.println("Employees list: ");
             System.out.println(person);
+            Collections.sort(person);
         } catch (NoMoreSpaceException e) {
             System.err.println(e.getMessage());
         }
-        catch (ExludedPersonsException e){
-            System.err.println(e.getMessage());
+         System.out.println("All work type: ");
+        for(WorkType w: WorkType.values()){
+            System.out.println(w.getDescription());
         }
+
     }
 }
 
