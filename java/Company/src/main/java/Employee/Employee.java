@@ -40,27 +40,31 @@ public abstract class Employee implements Responsibility, Working, Salary, Compa
     public String toString() {
         return "\n" + "first name: " + '\'' + firstName + '\'' + ", last name: " + '\'' + lastName + '\''
                 + ", work place: " + '\'' + workplace + '\'' + ", time working: " + working() + "h" + ","
-                + " Salary: " + getSalary() + " zł gross" + "\n" + "Job position: " + desc + "\n";
+                + " Salary: " + getSalary() + " zł gross" + "\n" + "Job position: " + desc;
     }
 
-    public static class ComaratorName implements Comparator<Employee>{
+    public static class ComparatorName implements Comparator<Employee>{
+
 
         @Override
         public int compare(Employee o1, Employee o2) {
-            return o1.getFirstName().compareTo(o2.getFirstName()), o1.getLastName().compareTo(o2.getLastName());
+
+            return o1.compareTo(o2);
         }
     }
 
     @Override
     public int compareTo(Employee o) {
-        int firstNameCompare = firstName.compareTo(o.getFirstName());
-        if(firstNameCompare != 0){
-         return firstNameCompare;
-        }
+
         int lasteNameCompare = lastName.compareTo(o.getLastName());
         if(lasteNameCompare != 0){
             return lasteNameCompare;
         }
+        int firstNameCompare = firstName.compareTo(o.getFirstName());
+        if(firstNameCompare != 0){
+         return firstNameCompare;
+        }
+
         return firstNameCompare;
     }
 }

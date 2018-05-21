@@ -3,8 +3,6 @@ package Employee;
 import Employee.Exceptions.ExludedPersonsException;
 import Employee.Exceptions.NoMoreSpaceException;
 import Employee.Persons.Company;
-
-import java.util.Collection;
 import java.util.Collections;
 
 public class Main{
@@ -14,7 +12,7 @@ public class Main{
             person.add(new Tester("Jan", "Nowak", "Manual Tester", WorkType.TESTER.toString()));
             person.add(new AutomationTester("Tom", "Addo", "Automation Team", WorkType.AUTOMATION_TESTER.toString()));
             person.add(new SeniorTester("Paweł", "Frack", "Senior Tester", WorkType.SENIOR_TESTER.toString()));
-            person.add(new SeniorAutomationTester("Puff", "daddy", "Lazy", WorkType.SENIOR_AUTOMATION_TESTER.toString()));
+            person.add(new SeniorAutomationTester("Puff", "Daddy", "Lazy", WorkType.SENIOR_AUTOMATION_TESTER.toString()));
             try{
                 person.add(new Tester("Jan", "Kowalski", "Lazy", WorkType.TESTER.toString()));
             }
@@ -38,17 +36,14 @@ public class Main{
                     return 0;
                 }
             });
+
             System.out.println("Employees list: ");
+            Collections.sort(person.getPersons(), new Employee.ComparatorName());
             System.out.println(person);
-            Collections.sort(person);
         } catch (NoMoreSpaceException e) {
             System.err.println(e.getMessage());
         }
-         System.out.println("All work type: ");
-        for(WorkType w: WorkType.values()){
-            System.out.println(w.getDescription());
-        }
-
+        WorkType.allWorkType();
     }
 }
 

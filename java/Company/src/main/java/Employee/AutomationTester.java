@@ -11,7 +11,7 @@ public class AutomationTester extends Employee {
 
     @Override
     public String toString() {
-        return super.toString() + '\n'+ "Responsibilities:"+ '\n' + printInfo();
+        return super.toString() + '\n'+ "Responsibilities:"+ " " + printInfo() + '\n';
     }
 
     @Override

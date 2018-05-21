@@ -9,6 +9,11 @@ import java.util.ArrayList;
 public class Company {
     public static final int MAX_NUMBER_EMPLOYYES = 10;
     private ArrayList<Employee> persons = new ArrayList<Employee>();
+
+    public ArrayList<Employee> getPersons() {
+        return persons;
+    }
+
     private int employeesNumber;
 
 

@@ -16,4 +16,12 @@ public enum WorkType {
     public String getDescription() {
         return description;
     }
+
+    static void allWorkType(){
+        System.out.println("All work type: ");
+        for(WorkType w: WorkType.values()){
+            if(!w.name().equals(WorkType.CHAIRMAN.name()))
+            System.out.println(w.getDescription());
+        }
+    }
 }
